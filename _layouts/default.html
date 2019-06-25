@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-GB" }}">
+
+  <head>
+
+  {% if site.google_analytics %}
+    <!-- Global Site Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.google_analytics }}');
+    </script>
+  {% endif %}
+
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+
+{% seo %}
+
+  {% if page.pagetype == 'frontpage' %}
+  <meta name="google-site-verification" content="b5WQ27MZqNbvVgcoGY-_owvJN7Izc80HfOytHxuaowg" />
+  {% endif %}
+
+  <!-- Twitter -->
+  {% if page.pagetype == 'frontpage' %}
+  <meta name="twitter:card"  content="summary_large_image">
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{% link assets/images/logo_MRtrix3Tissue.png %}">
+  {% else %}
+  <meta name="twitter:card"  content="summary">
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{% link assets/images/logo_3Tissue.png %}">
+  {% endif %}
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  {% if page.description %}
+  <meta name="twitter:description" content="{{ page.description }}">
+  {% endif %}
+  <meta name="twitter:site" content="@MRtrix3Tissue">
+  {% if page.creatortwitter %}
+  <meta name="twitter:creator" content="@{{ page.creatortwitter }}">
+  {% endif %}
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+      {% if page.pagetype == 'frontpage' %}
+        <img id="banner" src="{% link assets/images/banner_MRtrix3Tissue.png %}" alt="MRtrix3Tissue banner" />
+      {% else %}
+        <a href="{% link index.md %}"><img id="banner" src="{% link assets/images/banner_MRtrix3Tissue.png %}" alt="MRtrix3Tissue banner" /></a>
+      {% endif %}
+      </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+
+{{ content }}
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p><a href="{% link about.md %}">Copyright &copy; 2019 Thijs Dhollander and The Florey Institute of Neuroscience and Mental Health</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

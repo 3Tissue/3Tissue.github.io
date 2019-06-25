@@ -1,0 +1,18 @@
+title: "MRtrix3Tissue"
+description: "MRtrix3Tissue is a fork of MRtrix3."
+author: "Thijs Dhollander"
+url: "https://3Tissue.github.io"
+baseurl: ""
+lang: "en-AU"
+google_analytics: UA-142811856-1
+markdown: kramdown
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      pagetype: "page"
+
+github:
+  repository_url: https://github.com/3Tissue/MRtrix3Tissue
